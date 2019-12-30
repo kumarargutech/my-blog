@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.b100e6da.chunk.css",
+    "main.js": "/static/js/main.f6f738ce.chunk.js",
+    "main.js.map": "/static/js/main.f6f738ce.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.8727d782.js",
+    "runtime-main.js.map": "/static/js/runtime-main.8727d782.js.map",
+    "static/js/2.2b250440.chunk.js": "/static/js/2.2b250440.chunk.js",
+    "static/js/2.2b250440.chunk.js.map": "/static/js/2.2b250440.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.3343fb75b55d3af915f5cbdc99acab09.js": "/precache-manifest.3343fb75b55d3af915f5cbdc99acab09.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.b100e6da.chunk.css.map": "/static/css/main.b100e6da.chunk.css.map",
+    "static/media/contus.jpeg": "/static/media/contus.83e75943.jpeg",
+    "static/media/infy_logo.png": "/static/media/infy_logo.b1e03d76.png",
+    "static/media/kumar_r_photo.JPG": "/static/media/kumar_r_photo.c3f70e41.JPG",
+    "static/media/reactjs.png": "/static/media/reactjs.2671cb3a.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8727d782.js",
+    "static/js/2.2b250440.chunk.js",
+    "static/css/main.b100e6da.chunk.css",
+    "static/js/main.f6f738ce.chunk.js"
+  ]
+}

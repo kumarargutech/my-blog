@@ -1,0 +1,89 @@
+.MuiInputBase-root {
+    width: 400px;
+}
+.MuiInput-underline:before {
+    border-bottom: 1px solid #f7be16 !important;
+}
+.textField {
+    width: 200px;
+    position: relative;
+    left: -100px;
+    padding-bottom: 20px;    
+}
+.MuiInputBaseRoot {
+    width: 400px;
+}
+.textAreaCmt {
+    width: 400px;
+    min-height: 150px;
+    border: 0px;
+    position: "relative" !important;
+    top: 20 !important;
+    left: 100 !important;
+    margin-top: 20px;
+    font: inherit;
+    border-bottom: 1px solid #f7be16;
+}
+.commentBtn {
+    position: "relative";
+    top:45px;
+}
+.errorsInfo {
+    color: red;
+    margin-top: 20px;
+    position: relative;
+    top:15px;
+}
+.resetBtn {
+    margin-left: 10px !important;
+}
+.comments-container {
+    margin-top: 100px;
+}
+.upvote {
+    float: right;
+    color: #f50057;
+    position: relative;
+    top: 25px;
+}
+.upvoteCount {
+    font-size: 18px;
+    position: relative;
+    float: right;
+    left: -22px;
+}
+.star {
+    color: "#f50057";
+    position: "relative";
+    top: 4px;
+}
+.articleTextAreaCmt {
+    width: 100%;
+    min-height: 300px;
+    border: 0px;
+    position: "relative" !important;
+    top: 20 !important;
+    left: 100 !important;
+    margin-top: 50px;
+    font: inherit;
+    border-bottom: 1px solid #f7be16;
+}
+.articleTextDiv {
+    position: relative;
+    left: -246px;        
+}
+.textDiv {
+    position: relative;
+    top:20px;
+}
+.articleBtn {
+    position: relative;
+    top:50px;
+}
+.addArticleLink {
+    text-decoration: none;  
+}
+.homeLink {
+    text-decoration: none !important;
+    color: #fff;
+}
