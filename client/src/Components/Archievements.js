@@ -7,6 +7,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import GetAchievement from './GetAchievement';
+import Loader from './Loader';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -28,12 +29,14 @@ export default function Archievements() {
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
   const [achievement, setAchievement] = useState();
+  const [loaderStatus, setLoaderStatus] = useState(true);
 
   useEffect(() => {
     const FetchData = async () => {
       const res = await fetch(URLPath);
       const json = await res.json();
       setAchievement(json);
+      setLoaderStatus(false);
     };
     FetchData();
   }, [URLPath]);
@@ -60,6 +63,10 @@ export default function Archievements() {
   const handleReset = () => {
     setActiveStep(0);
   };
+
+  if(loaderStatus) {
+    return <Loader />
+  }
 
   return (
     <div className={classes.root}>
