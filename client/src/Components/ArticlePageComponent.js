@@ -6,6 +6,7 @@ import Comments from '../Containers/Comments';
 import CommentsList from '../Containers/CommentsList';
 import RelatedArticles from './RelatedArticles';
 import Divider from '@material-ui/core/Divider';
+import Loader from './Loader';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -32,16 +33,22 @@ const ArticlePageComponent = ({ match }) => {
     const name = match.params.name;
     const [article, setArticle] = useState();
     const [relatedArticle, setRelatedArticle] = useState();
-    
+    const [loaderStatus, setLoaderStatus] = useState(true);
+
     useEffect(() => {
         const fetchData = async () => {
             let response = await fetch(`/api/article/${name}`);
             let result = await response.json();
             setArticle(result.articles);
             setRelatedArticle(result.relatedArticles);
+            setLoaderStatus(false);
         }
         fetchData();
     }, [name]);
+
+    if (loaderStatus) {
+        return <Loader />
+    }
 
     return (
         <>

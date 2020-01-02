@@ -6,6 +6,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Container from '@material-ui/core/Container';
+import Loader from './Loader';
 
 const StyledTableCell = withStyles(theme => ({
   head: {
@@ -38,15 +39,21 @@ export default function Education() {
   const URLPath = "/api/educationdetails";
   const classes = useStyles();
   const [education, setEducation] = useState();
+  const [loaderStatus, setLoaderStatus] = useState(true);
 
   useEffect(() => {
     const FetchData = async () => {
         const res = await fetch(URLPath);
         const json = await res.json();
-        setEducation(json);      
+        setEducation(json);    
+        setLoaderStatus(false);  
     };
     FetchData();
   }, [URLPath]);
+
+  if(loaderStatus) {
+    return <Loader />
+  }
 
   return (
     <>

@@ -11,6 +11,7 @@ import LocationCity from '@material-ui/icons/LocationCity';
 import GitHub from '@material-ui/icons/GitHub';
 import LinkedIn from '@material-ui/icons/LinkedIn';
 import ProfileImg from '../assets/images/kumar_r_photo.JPG';
+import Loader from './Loader';
 
 const useStyles = makeStyles({
     bigAvatar: {
@@ -39,15 +40,21 @@ export default function Personal(props) {
     const URLPath = "/api/personalinfo";
     const classes = useStyles();
     const [personal, setPersonal] = useState();
+    const [loaderStatus, setLoaderStatus] = useState(true);
 
     useEffect(() => {
         const FetchData = async () => {
             const res = await fetch(URLPath);
             const json = await res.json();
             setPersonal(json);
+            setLoaderStatus(false);
         };
         FetchData();
     }, [URLPath]);
+
+    if(loaderStatus) {
+        return <Loader />
+    }
 
     return (
         <div>

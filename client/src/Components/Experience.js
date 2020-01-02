@@ -9,6 +9,7 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import GetExperience from './GetExperience';
+import Loader from './Loader';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -31,7 +32,7 @@ export default function Experience() {
   const URLPath = "/api/experiences";
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
-
+  const [loaderStatus, setLoaderStatus] = useState(true);
   const [experience, setExperience] = useState();
 
   useEffect(() => {
@@ -39,6 +40,7 @@ export default function Experience() {
       const res = await fetch(URLPath);
       const json = await res.json();
       setExperience(json);
+      setLoaderStatus(false);
     };
     FetchData();
   }, [URLPath]);
@@ -54,6 +56,10 @@ export default function Experience() {
   const handleReset = () => {
     setActiveStep(0);
   };
+
+  if(loaderStatus) {
+    return <Loader />
+  }
 
   return (
     <div className={classes.root}>
