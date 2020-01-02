@@ -17,8 +17,8 @@ class AddComment extends React.Component {
     }
 
     componentDidMount() {
-        let articleTitle = this.props.article;
-        this.setState({ articleTitle });
+        let articleId = this.props.articleId;
+        this.setState({ articleId });
     }
 
     handleValidation = () => {
@@ -70,18 +70,17 @@ class AddComment extends React.Component {
                         <div className="textDiv">
                             <TextField name="username" label="Name" className="textField"
                                 value={this.state.username}
-                                onChange={this.onChangeText} />
-                            <div>
-                                <span className="errorsInfo"> {this.state.errors.username} </span>
-                            </div>
+                                onChange={this.onChangeText} />                            
                         </div>
+                        <div> <span className="cmtErrorsInfo">{this.state.errors.username}</span></div>
+                        
                         <div className="textDiv">
                             <TextareaAutosize name="comment" className="textAreaCmt" aria-label="Comments"
                                 value={this.state.comment}
                                 onChange={this.onChangeText}
                                 rowsmin={6} placeholder="Comments" />
                             <div>
-                                <span className="errorsInfo"> {this.state.errors.comment} </span>
+                                <span className="cmtErrorsInfo"> {this.state.errors.comment} </span>
                             </div>
                         </div>
                         <div>

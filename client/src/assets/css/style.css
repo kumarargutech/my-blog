@@ -30,9 +30,8 @@
 }
 .errorsInfo {
     color: red;
-    margin-top: 20px;
     position: relative;
-    top:15px;
+    float: left;
 }
 .resetBtn {
     margin-left: 10px !important;
@@ -67,14 +66,16 @@
     margin-top: 50px;
     font: inherit;
     border-bottom: 1px solid #f7be16;
+    font-size: 16px;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 }
 .articleTextDiv {
     position: relative;
-    left: -246px;        
+    float: left;      
 }
 .textDiv {
-    position: relative;
-    top:20px;
+    *position: relative;
+    *top:20px;
 }
 .articleBtn {
     position: relative;
@@ -86,4 +87,13 @@
 .homeLink {
     text-decoration: none !important;
     color: #fff;
+}
+.divClassName {
+    width: 100%;
+    position: absolute;
+}
+.cmtErrorsInfo {
+    color: red;
+    position: relative;
+    top: 10px;
 }

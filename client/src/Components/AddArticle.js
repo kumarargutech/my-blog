@@ -80,10 +80,10 @@ class AddArticle extends React.Component {
                     <h3>Add Article</h3>
                     <form onSubmit={this.handleOnSubmit}>
                         <div className="articleTextDiv">
-                            <TextField name="article_title" label="Article Name" className="addArticleTextField"
+                            <TextField name="article_title" label="Article Name*" className="addArticleTextField"
                                 value={this.state.article_title}
                                 onChange={this.onChangeText} />
-                            <div>
+                            <div className="divClassName">
                                 <span className="errorsInfo"> {this.state.errors.article_title} </span>
                             </div>
                         </div>
@@ -91,8 +91,8 @@ class AddArticle extends React.Component {
                             <TextareaAutosize name="article_content" className="articleTextAreaCmt" aria-label="Article Content"
                                 value={this.state.article_content}
                                 onChange={this.onChangeText}
-                                rowsmin={6} placeholder="Article Content" />
-                            <div>
+                                rowsmin={6} placeholder="Article Content*" />
+                            <div className="divClassName">
                                 <span className="errorsInfo"> {this.state.errors.article_content} </span>
                             </div>
                         </div>

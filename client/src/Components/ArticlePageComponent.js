@@ -30,6 +30,7 @@ const useStyles = makeStyles(theme => ({
 const ArticlePageComponent = ({ match }) => {
     const classes = useStyles();
     const name = match.params.name;
+    console.log("articleid: ", name);
     const [article, setArticle] = useState();
     const [relatedArticle, setRelatedArticle] = useState();
     
@@ -57,7 +58,7 @@ const ArticlePageComponent = ({ match }) => {
                         </Grid>
                     </Grid>
                     <Divider variant="inset" />
-                    <Comments article={article.article_title} />
+                    <Comments articleId={article._id} />
                     <CommentsList commentsList={article.comments} />
                     <RelatedArticles articles={relatedArticle} />
                 </Container>

@@ -64,11 +64,11 @@ app.get("/api/articles", async (req, res) => {
 })
 
 app.get("/api/article/:name", async (req, res) => {
-    const articleName = req.params.name;
+    const articleId = req.params.name;
 
     withDB(async (db) => {
-        let articles = await db.collection("articles").findOne({ article_title: articleName });
-        let relatedArticles = await db.collection("articles").find({ article_title: { $ne: articleName } }).toArray();
+        let articles = await db.collection("articles").findOne({ _id: ObjectID(articleId) });
+        let relatedArticles = await db.collection("articles").find({ _id: { $ne: ObjectID(articleId) } }).toArray();
         res.status(200).json({ articles, relatedArticles });
     });
 })
@@ -77,7 +77,7 @@ app.post("/api/add-article", async (req, res) => {
     const { article_title, article_content } = req.body;
 
     withDB(async (db) => {
-        await db.collection('articles').insertOne({ article_title: article_title, article_content: article_content });
+        await db.collection('articles').insertOne({ article_title: article_title, article_content: article_content, comments:[] });
         const articles = await db.collection("articles").find({}).toArray();
         const response = { statusCode: 200, message: "Article added successfully.", articles }
         res.status(200).json(response);
@@ -86,16 +86,20 @@ app.post("/api/add-article", async (req, res) => {
 
 app.post("/api/article/:name/add-comment", async (req, res) => {
     const { username, comment } = req.body;
-    const articleName = req.params.name;
+    const articleId = req.params.name;
+    console.log("articleId: ", articleId);
 
     withDB(async (db) => {
-        let articleInfo = await db.collection("articles").findOne({ article_title: articleName });
-        await db.collection('articles').updateOne({ article_title: articleName }, {
+        let articleInfo = await db.collection("articles").findOne({ _id: ObjectID(articleId) });
+        console.log("articleInfo", articleInfo);
+        
+        await db.collection('articles').updateOne({ _id: ObjectID(articleId) }, {
             $set: {
                 comments: articleInfo.comments.concat({ username, comment })
             }
         });
-        const updateInfo = await db.collection("articles").findOne({ article_title: articleName });
+                
+        const updateInfo = await db.collection("articles").findOne({ _id: ObjectID(articleId) });
         res.status(200).json(updateInfo);
     });
 });

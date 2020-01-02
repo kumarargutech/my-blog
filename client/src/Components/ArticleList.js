@@ -40,7 +40,7 @@ export default function ArticleList({ article, keyIndex }) {
             <p className={classes.articleContent}>{article.article_content.substring(0, 200)}</p>
           </Grid>
         </Grid>
-        <div><Link to={`/article/${article.article_title}`} className={classes.readMore}>{article.article_content.length > 200 && "Read more ..."}</Link></div>
+        <div><Link to={`/article/${article._id}`} className={classes.readMore}>{article.article_content.length > 200 && "Read more ..."}</Link></div>
       </div>
     </>
   );
