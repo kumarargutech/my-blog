@@ -41,7 +41,6 @@ class AddArticle extends React.Component {
     handleOnSubmit = (e) => {
         e.preventDefault();
         if (this.handleValidation()) {
-            console.log(this.state);
             if (this.state.article_title.trim() && this.state.article_content.trim()) {
                 this.props.addArticleAction(this.state);
                 this.handleReset();
@@ -111,9 +110,6 @@ class AddArticle extends React.Component {
 }
 
 const mapStateToProps = (state, props) => {
-
-    console.log("addarticle states: ", state);
-
     return ({
         addArticleStatus: state.addArticle
     });

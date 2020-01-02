@@ -12,7 +12,6 @@ app.use(bodyParser.json());
 const withDB = async (operations, res) => {
     try {
         const client = await MongoClient.connect('mongodb://127.0.0.1:27017', { useUnifiedTopology: true });
-        console.log("db connect");
         let db = await client.db("personal_blog");
         await operations(db);
         client.close();
@@ -77,7 +76,7 @@ app.post("/api/add-article", async (req, res) => {
     const { article_title, article_content } = req.body;
 
     withDB(async (db) => {
-        await db.collection('articles').insertOne({ article_title: article_title, article_content: article_content, comments:[] });
+        await db.collection('articles').insertOne({ article_title: article_title, article_content: article_content, comments: [] });
         const articles = await db.collection("articles").find({}).toArray();
         const response = { statusCode: 200, message: "Article added successfully.", articles }
         res.status(200).json(response);
@@ -87,18 +86,15 @@ app.post("/api/add-article", async (req, res) => {
 app.post("/api/article/:name/add-comment", async (req, res) => {
     const { username, comment } = req.body;
     const articleId = req.params.name;
-    console.log("articleId: ", articleId);
-
+    
     withDB(async (db) => {
         let articleInfo = await db.collection("articles").findOne({ _id: ObjectID(articleId) });
-        console.log("articleInfo", articleInfo);
-        
         await db.collection('articles').updateOne({ _id: ObjectID(articleId) }, {
             $set: {
                 comments: articleInfo.comments.concat({ username, comment })
             }
         });
-                
+
         const updateInfo = await db.collection("articles").findOne({ _id: ObjectID(articleId) });
         res.status(200).json(updateInfo);
     });

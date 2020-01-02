@@ -30,7 +30,6 @@ const useStyles = makeStyles(theme => ({
 const ArticlePageComponent = ({ match }) => {
     const classes = useStyles();
     const name = match.params.name;
-    console.log("articleid: ", name);
     const [article, setArticle] = useState();
     const [relatedArticle, setRelatedArticle] = useState();
     
@@ -38,7 +37,6 @@ const ArticlePageComponent = ({ match }) => {
         const fetchData = async () => {
             let response = await fetch(`/api/article/${name}`);
             let result = await response.json();
-            console.log("result", result);
             setArticle(result.articles);
             setRelatedArticle(result.relatedArticles);
         }

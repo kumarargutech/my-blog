@@ -46,11 +46,6 @@ function ArticlesListPageComponent(props) {
         FetchData();
     }, [URLPath]);
 
-    function handleAddArticle() {
-        console.log("welcome");
-    }
-
-
     return (
         <>
             <div className={classes.root}>
