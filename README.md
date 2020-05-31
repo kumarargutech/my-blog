@@ -2,7 +2,7 @@
 
 About My Self <br>
 Experience <br>
-Technical Knowledge
-Previous Company Details
-Achievements
-Education Details.
+Technical Knowledge <br>
+Previous Company Details <br>
+Achievements <br>
+Education Details. <br>
