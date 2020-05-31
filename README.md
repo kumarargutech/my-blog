@@ -1,7 +1,7 @@
 # personal-blog
 
-About My Self
-Experience
+About My Self <br>
+Experience <br>
 Technical Knowledge
 Previous Company Details
 Achievements
